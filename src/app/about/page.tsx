@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, Target, Eye, Users, Award, Hammer, Trophy, TrendingUp, Sparkles, ArrowRight } from "lucide-react";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function About() {
   const coreValues = [
@@ -59,7 +60,7 @@ export default function About() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             About Our Brand
           </span>
@@ -69,22 +70,24 @@ export default function About() {
           <p className="text-gray-300 font-sans text-sm md:text-base font-light max-w-xl leading-relaxed">
             Swapnosiri Builders Ltd. represents the peak of elite residential construction in Dhaka's premier modern smart sectors.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Company Overview Section */}
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-6 relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-            <Image
-              src="/images/luxury_lobby.png"
-              alt="SBL Premium marble lobby"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-103"
-            />
-          </div>
-          <div className="lg:col-span-6 text-left space-y-6">
+          <ScrollReveal variant="fade-right" duration={0.9} className="lg:col-span-6 w-full">
+            <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+              <Image
+                src="/images/luxury_lobby.png"
+                alt="SBL Premium marble lobby"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-103"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="lg:col-span-6 w-full text-left space-y-6">
             <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
               Company Overview
             </span>
@@ -97,7 +100,7 @@ export default function About() {
             <p className="text-gray-400 font-sans text-sm font-light leading-relaxed">
               Our developments combine premium aesthetics with maximum engineering safety compliance. Collaborating strictly with premier construction laboratories and steel manufacturers, SBL guarantees robust, BNBC-compliant wind and earthquake resistant structures.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -106,48 +109,61 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
             {/* Mission */}
-            <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
-                <Target className="w-6 h-6 text-gold" />
+            <ScrollReveal variant="fade-right" duration={0.8} className="w-full">
+              <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6 h-full">
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
+                  <Target className="w-6 h-6 text-gold" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wide">Our Mission</h3>
+                <p className="text-gray-300 font-sans text-sm font-light leading-relaxed">
+                  To develop modern, highly sustainable, and elite residential buildings that deliver comfort, safety, and long-term investment value, while maintaining absolute transparent communications, premium material sourcing, and timely project delivery.
+                </p>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wide">Our Mission</h3>
-              <p className="text-gray-300 font-sans text-sm font-light leading-relaxed">
-                To develop modern, highly sustainable, and elite residential buildings that deliver comfort, safety, and long-term investment value, while maintaining absolute transparent communications, premium material sourcing, and timely project delivery.
-              </p>
-            </div>
+            </ScrollReveal>
 
             {/* Vision */}
-            <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6">
-              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
-                <Eye className="w-6 h-6 text-gold" />
+            <ScrollReveal variant="fade-left" duration={0.8} delay={0.15} className="w-full">
+              <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6 h-full">
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
+                  <Eye className="w-6 h-6 text-gold" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wide">Our Vision</h3>
+                <p className="text-gray-300 font-sans text-sm font-light leading-relaxed">
+                  To become one of the most trusted and leading luxury real estate developers in Bangladesh, setting new international safety benchmarks in structural quality control, architectural innovation, custom buyer satisfaction, and ethical business conduct.
+                </p>
               </div>
-              <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wide">Our Vision</h3>
-              <p className="text-gray-300 font-sans text-sm font-light leading-relaxed">
-                To become one of the most trusted and leading luxury real estate developers in Bangladesh, setting new international safety benchmarks in structural quality control, architectural innovation, custom buyer satisfaction, and ethical business conduct.
-              </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Core Values Section */}
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12 text-center">
-        <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
-          Our Brand Pillars
-        </span>
-        <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
-          The SBL Core Values Dictating Every Project
-        </h2>
+        <ScrollReveal variant="fade-up" duration={0.8}>
+          <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
+            Our Brand Pillars
+          </span>
+          <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
+            The SBL Core Values Dictating Every Project
+          </h2>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
           {coreValues.map((val, idx) => (
-            <div key={idx} className="bg-[#140f2a]/80 p-6 rounded-2xl border border-white/10 hover:shadow-lg hover:border-gold/30 transition-all duration-300">
-              <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 border border-gold/15">
-                <val.icon className="w-5 h-5 text-gold" />
+            <ScrollReveal 
+              key={idx}
+              variant="fade-up"
+              delay={idx * 0.1}
+              duration={0.8}
+            >
+              <div className="bg-[#140f2a]/80 p-6 rounded-2xl border border-white/10 hover:shadow-lg hover:border-gold/30 transition-all duration-300 h-full">
+                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold mb-6 border border-gold/15">
+                  <val.icon className="w-5 h-5 text-gold" />
+                </div>
+                <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wide mb-3">{val.title}</h4>
+                <p className="text-gray-400 font-sans text-xs leading-relaxed font-light">{val.desc}</p>
               </div>
-              <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wide mb-3">{val.title}</h4>
-              <p className="text-gray-400 font-sans text-xs leading-relaxed font-light">{val.desc}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -155,7 +171,7 @@ export default function About() {
       {/* CEO Message Section (Condensed/Editorial) */}
       <section className="py-24 bg-navy text-white relative">
         <div className="absolute inset-0 bg-dot-grid opacity-15 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10 space-y-8">
+        <ScrollReveal variant="scale-up" duration={0.9} className="max-w-5xl mx-auto px-6 text-center relative z-10 space-y-8">
           <QuoteIcon className="w-16 h-16 text-gold mx-auto opacity-35" />
           <h3 className="font-serif text-2xl md:text-3xl font-medium italic leading-relaxed">
             "At Swapnosiri Builders Ltd., we do not build for today. We construct safety vaults designed to shield your families from natural forces, crafted with pristine integrity, and built to stand tall for generations."
@@ -164,18 +180,20 @@ export default function About() {
             <h4 className="font-serif text-gold text-lg font-bold">Md. Shahbuddin</h4>
             <p className="text-gray-400 font-sans text-xs uppercase tracking-widest">Chief Executive Officer</p>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Company Journey (Interactive Timeline Grid) */}
       <section className="py-24 bg-transparent relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
-            Company Journey
-          </span>
-          <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
-            Visual Milestones of Architectural Accomplishment
-          </h2>
+          <ScrollReveal variant="fade-up" duration={0.8}>
+            <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
+              Company Journey
+            </span>
+            <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
+              Visual Milestones of Architectural Accomplishment
+            </h2>
+          </ScrollReveal>
 
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline center line */}
@@ -183,8 +201,10 @@ export default function About() {
 
             <div className="space-y-12">
               {timelineEvents.map((ev, idx) => (
-                <div 
-                  key={idx} 
+                <ScrollReveal 
+                  key={idx}
+                  variant={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                  duration={0.8}
                   className={`flex flex-col md:flex-row items-center gap-8 md:gap-0 ${
                     idx % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
@@ -205,7 +225,7 @@ export default function About() {
 
                   {/* Empty spacer block for alignment */}
                   <div className="hidden md:block w-[45%]" />
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

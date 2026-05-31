@@ -1,6 +1,7 @@
 import React from "react";
 import { MapPin, Phone, MessageSquare, Mail, Clock, ShieldCheck, Compass } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function Contact() {
   return (
@@ -8,7 +9,7 @@ export default function Contact() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             Get In Touch
           </span>
@@ -18,14 +19,14 @@ export default function Contact() {
           <p className="text-gray-300 font-sans text-sm md:text-base font-light max-w-xl leading-relaxed">
             Arrange a digital presentation or visit our Purbachal site office to inspect structural logs.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Main Interactive Grid */}
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Info Columns */}
-          <div className="lg:col-span-5 text-left space-y-8">
+          <ScrollReveal variant="fade-right" duration={0.9} className="lg:col-span-5 w-full text-left space-y-8">
             <div className="space-y-4">
               <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
                 Office Information
@@ -115,19 +116,19 @@ export default function Contact() {
                 <span className="font-semibold text-gold uppercase font-bold text-[9px] tracking-widest bg-gold/15 px-2 py-0.5 rounded">Closed</span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Inquiry form card Column */}
-          <div className="lg:col-span-7 w-full">
+          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="lg:col-span-7 w-full">
             <InquiryForm />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Interactive Google Map Mockup Layout */}
       <section className="h-[450px] relative w-full overflow-hidden border-t border-white/5 bg-[#140f2a]/25 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
+        <ScrollReveal variant="scale-up" duration={0.9} className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
           <div className="border border-white/10 p-8 rounded-2xl bg-[#1e1740] shadow-2xl max-w-sm space-y-4">
             <div className="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold mx-auto bg-gold/10">
               <MapPin className="w-6 h-6 animate-bounce" />
@@ -146,7 +147,7 @@ export default function Contact() {
               <Compass className="w-3.5 h-3.5" />
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

@@ -16,6 +16,7 @@ import {
 import Link from "next/link";
 import { SBL_PROJECTS } from "@/utils/data";
 import InquiryForm from "@/components/ui/InquiryForm";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -39,7 +40,7 @@ export default async function ProjectDetail({ params }: PageProps) {
     <div className="pt-24 bg-transparent">
       {/* Back Button Overlay Banner */}
       <section className="bg-navy-gradient text-white py-12 relative border-b border-gold/15">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <ScrollReveal variant="fade-down" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gray-300 hover:text-gold transition-colors duration-300"
@@ -55,7 +56,7 @@ export default async function ProjectDetail({ params }: PageProps) {
               {project.area}
             </span>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Cinematic Banner & Visual Section */}
@@ -63,35 +64,39 @@ export default async function ProjectDetail({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Visual Carousel Render */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-103"
-                priority
-              />
-            </div>
+            <ScrollReveal variant="fade-right" duration={0.9}>
+              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-103"
+                  priority
+                />
+              </div>
+            </ScrollReveal>
             
             {/* Gallery Thumbnails */}
             <div className="grid grid-cols-2 gap-4">
               {project.images.map((img, idx) => (
-                <div key={idx} className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
-                  <Image
-                    src={img}
-                    alt={`${project.title} Render ${idx + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 30vw"
-                    className="object-cover"
-                  />
-                </div>
+                <ScrollReveal key={idx} variant="scale-up" duration={0.8} delay={idx * 0.15}>
+                  <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src={img}
+                      alt={`${project.title} Render ${idx + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 30vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           {/* Core Overview & Callouts */}
-          <div className="lg:col-span-5 flex flex-col items-start text-left justify-between space-y-6">
+          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="lg:col-span-5 flex flex-col items-start text-left justify-between space-y-6">
             <div className="space-y-4">
               <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
                 Overview
@@ -133,7 +138,7 @@ export default async function ProjectDetail({ params }: PageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -141,7 +146,7 @@ export default async function ProjectDetail({ params }: PageProps) {
       <section className="py-20 bg-[#140f2a]/25 backdrop-blur-[2px] border-t border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Engineering Features */}
-          <div className="text-left space-y-6">
+          <ScrollReveal variant="fade-right" duration={0.9} className="text-left space-y-6">
             <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
               Engineering Specs
             </span>
@@ -154,10 +159,10 @@ export default async function ProjectDetail({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Premium Amenities */}
-          <div className="text-left space-y-6">
+          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="text-left space-y-6">
             <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
               Luxury Accents
             </span>
@@ -170,14 +175,14 @@ export default async function ProjectDetail({ params }: PageProps) {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Floor Plans & Technical Specifications Lists */}
       <section className="py-20 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Floor Plans */}
-        <div className="text-left space-y-6">
+        <ScrollReveal variant="fade-right" duration={0.9} className="text-left space-y-6">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
             Floor Plans
           </span>
@@ -193,10 +198,10 @@ export default async function ProjectDetail({ params }: PageProps) {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Technical specs table */}
-        <div className="text-left space-y-6">
+        <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="text-left space-y-6">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
             Specifications
           </span>
@@ -213,13 +218,13 @@ export default async function ProjectDetail({ params }: PageProps) {
               </tbody>
             </table>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Inquiry Block */}
       <section className="py-20 bg-navy-gradient text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-grid opacity-20 pointer-events-none" />
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-8">
+        <ScrollReveal variant="scale-up" duration={0.9} className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-8">
           <h2 className="font-serif text-3xl font-bold text-white uppercase tracking-wider">Acquire Your SBL Residence</h2>
           <p className="text-gray-300 font-sans text-sm font-light max-w-lg mx-auto">
             Book an offline private consultation at our Purbachal site or arrange a digital presentation with our senior structural consultants.
@@ -227,7 +232,7 @@ export default async function ProjectDetail({ params }: PageProps) {
           <div className="max-w-xl mx-auto text-white">
             <InquiryForm projectTitle={project.title} />
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

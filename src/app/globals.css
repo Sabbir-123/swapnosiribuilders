@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #08101f;        /* Midnight Navy base */
-  --color-gold: #D4A017;        /* Luxury Warm Gold accent */
-  --color-dark: #0d1629;        /* Architectural Navy */
-  --color-light: #121926;       /* Slate Blue layer */
+  --color-navy: #0a0a0a;        /* Near-black base */
+  --color-gold: #D4AF37;        /* Luxury Gold accent */
+  --color-dark: #141414;        /* Dark charcoal */
+  --color-light: #1e1e1e;       /* Mid dark layer */
   --color-charcoal: #F8F8F6;    /* Crisp Luxury Warm White */
   --font-serif: var(--font-fira-sans), sans-serif;
   --font-sans: var(--font-fira-sans), sans-serif;
 }
 
 :root {
-  --background: #08101f;
+  --background: #050505;
   --foreground: #F8F8F6;
 }
 
@@ -34,19 +34,19 @@
   background: #C9A227;
 }
 
-/* Base resets & styles — Luxury Architectural Navy/Gold Gradient */
+/* Base resets & styles — Purplish → Ash → White gradient */
 body {
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(212, 160, 23, 0.08),
-      transparent 40%
-    ),
     linear-gradient(
-      180deg,
-      #08101f 0%,
-      #0d1629 40%,
-      #121926 100%
+      170deg,
+      #090514 0%,   /* Obsidian Purplish Black */
+      #130a24 15%,  /* Deep Midnight Purple */
+      #22143b 30%,  /* Architectural Dark Violet */
+      #3f354f 48%,  /* Ash-Purple Mix */
+      #6b6b7a 65%,  /* Classic Ash Grey */
+      #a0a0aa 78%,  /* Light Ash */
+      #dcdce0 88%,  /* Platinum Grey */
+      #f5f5f7 100%  /* Luxury Crisp White */
     );
   background-attachment: fixed;
   color: var(--foreground);
@@ -117,9 +117,9 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #D4AF37 0%, #f7c348 50%, #B3860F 100%);
 }
 
-/* Luxury Architectural header gradient */
+/* Black → Ash header gradient */
 .bg-navy-gradient {
-  background: linear-gradient(135deg, #08101f 0%, #0d1629 50%, #121926 100%);
+  background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #2a2a2a 100%);
 }
 
 /* Subtle architectural dot grid */

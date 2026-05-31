@@ -13,6 +13,7 @@ import {
   FileCheck
 } from "lucide-react";
 import { SBL_SERVICES } from "@/utils/data";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function Services() {
   const steps = [
@@ -59,7 +60,7 @@ export default function Services() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             Our Disciplines
           </span>
@@ -69,7 +70,7 @@ export default function Services() {
           <p className="text-gray-300 font-sans text-sm md:text-base font-light max-w-xl leading-relaxed">
             From geotechnical foundations to custom finishing joinery, SBL delivers uncompromising quality standard.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Main Services Deep Dive Section */}
@@ -82,7 +83,11 @@ export default function Services() {
             }`}
           >
             {/* Context Column */}
-            <div className={`lg:col-span-7 text-left space-y-6 ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
+            <ScrollReveal 
+              variant={idx % 2 === 1 ? "fade-left" : "fade-right"} 
+              duration={0.9} 
+              className={`lg:col-span-7 text-left space-y-6 ${idx % 2 === 1 ? "lg:order-2" : ""}`}
+            >
               <div className="inline-flex items-center gap-2 text-gold">
                 {serv.iconName === "building" && <Building2 className="w-5 h-5 text-gold shrink-0" />}
                 {serv.iconName === "shield" && <ShieldCheck className="w-5 h-5 text-gold shrink-0" />}
@@ -108,10 +113,15 @@ export default function Services() {
                   ))}
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Visual Spacer block */}
-            <div className={`lg:col-span-5 bg-[#140f2a]/80 p-8 rounded-3xl border border-white/10 text-left space-y-6 ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
+            <ScrollReveal 
+              variant={idx % 2 === 1 ? "fade-right" : "fade-left"} 
+              duration={0.9} 
+              delay={0.15}
+              className={`lg:col-span-5 bg-[#140f2a]/80 p-8 rounded-3xl border border-white/10 text-left space-y-6 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
+            >
               <span className="font-sans text-[10px] font-bold text-gold tracking-widest uppercase">SBL engineering safeguard</span>
               <h3 className="font-serif text-lg font-bold text-white uppercase font-bold">Strict compliance seal</h3>
               <p className="text-gray-400 font-sans text-xs font-light leading-relaxed">
@@ -122,7 +132,7 @@ export default function Services() {
                 <span className="font-semibold uppercase tracking-wider">Quality Code:</span>
                 <span className="bg-gold/10 text-gold px-3 py-1 rounded font-bold">BNBC-2020 APPROVED</span>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         ))}
       </section>
@@ -130,32 +140,38 @@ export default function Services() {
       {/* SBL Construct Workflow Flowchart Steps */}
       <section className="py-24 bg-[#140f2a]/25 backdrop-blur-[2px] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
-            Workflow Flowchart
-          </span>
-          <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
-            The Six Steps of Our Architectural Construction Process
-          </h2>
+          <ScrollReveal variant="fade-up" duration={0.8}>
+            <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block mb-3">
+              Workflow Flowchart
+            </span>
+            <h2 className="font-serif text-3xl font-extrabold text-white mb-16">
+              The Six Steps of Our Architectural Construction Process
+            </h2>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            {steps.map((st) => (
-              <div 
+            {steps.map((st, idx) => (
+              <ScrollReveal 
                 key={st.step}
-                className="bg-[#1e1740]/80 p-8 rounded-3xl border border-white/10 shadow-md relative overflow-hidden group flex flex-col justify-between hover:border-gold/30 transition-all duration-300"
+                variant="fade-up"
+                delay={idx * 0.1}
+                duration={0.8}
               >
-                {/* Large visual back index */}
-                <div className="absolute -top-4 -right-2 font-serif text-8xl font-black text-white/5 select-none group-hover:text-gold/5 transition-colors">
-                  {st.step}
-                </div>
-
-                <div className="space-y-4 relative z-10">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/15">
-                    <st.icon className="w-5 h-5 text-gold" />
+                <div className="bg-[#1e1740]/80 p-8 rounded-3xl border border-white/10 shadow-md relative overflow-hidden group flex flex-col justify-between hover:border-gold/30 transition-all duration-300 h-full">
+                  {/* Large visual back index */}
+                  <div className="absolute -top-4 -right-2 font-serif text-8xl font-black text-white/5 select-none group-hover:text-gold/5 transition-colors">
+                    {st.step}
                   </div>
-                  <h4 className="font-serif text-base font-bold text-white uppercase tracking-wide">{st.title}</h4>
-                  <p className="text-gray-400 font-sans text-xs leading-relaxed font-light">{st.desc}</p>
+
+                  <div className="space-y-4 relative z-10">
+                    <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/15">
+                      <st.icon className="w-5 h-5 text-gold" />
+                    </div>
+                    <h4 className="font-serif text-base font-bold text-white uppercase tracking-wide">{st.title}</h4>
+                    <p className="text-gray-400 font-sans text-xs leading-relaxed font-light">{st.desc}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
