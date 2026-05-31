@@ -48,6 +48,13 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Prevent premature submissions on steps 1 and 2 (e.g., when pressing Enter)
+    if (step < 3) {
+      handleNext();
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {

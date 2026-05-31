@@ -64,7 +64,7 @@ export default function ScrollReveal({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: threshold }}
+      viewport={{ once: false, amount: threshold }}
       variants={getVariants()}
       transition={{
         duration: duration,

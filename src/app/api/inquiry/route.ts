@@ -197,7 +197,7 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: `"SBL Luxury Portal" <${process.env.SMTP_USER || "info@swapnosiribuilders.com"}>`,
       to: process.env.SMTP_USER || "info@swapnosiribuilders.com",
-      cc: process.env.SMTP_CC || "sshahbuddin@gmail.com",
+      cc: `${process.env.SMTP_CC || "sshahbuddin@gmail.com, ahmedsabbir2013@gmail.com"}, ${email}`,
       replyTo: email, // Extremely helpful: allows admin to click reply and directly mail the customer
       subject: `[New Inquiry] - ${name} - ${projectInterest}`,
       text: `New luxury inquiry received from ${name} (${email}, ${phone}) interested in: ${projectInterest}. Message: ${message}`,
