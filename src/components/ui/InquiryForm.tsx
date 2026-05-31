@@ -156,6 +156,7 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
                       type="text"
                       name="name"
                       required
+                      suppressHydrationWarning
                       placeholder="Md. Aminul Islam"
                       value={formData.name}
                       onChange={handleInputChange}
@@ -170,6 +171,7 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
                     <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold" />
                     <select
                       name="projectInterest"
+                      suppressHydrationWarning
                       value={formData.projectInterest}
                       onChange={handleInputChange}
                       className="w-full bg-dark/90 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white focus:outline-none focus:border-gold font-sans transition-colors appearance-none"
@@ -200,6 +202,7 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
                       type="email"
                       name="email"
                       required
+                      suppressHydrationWarning
                       placeholder="example@mail.com"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -216,6 +219,7 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
                       type="tel"
                       name="phone"
                       required
+                      suppressHydrationWarning
                       placeholder="+88017XXXXXXXX"
                       value={formData.phone}
                       onChange={handleInputChange}
@@ -240,6 +244,7 @@ export default function InquiryForm({ projectTitle = "", onSuccess }: InquiryFor
                     <textarea
                       name="message"
                       rows={4}
+                      suppressHydrationWarning
                       placeholder="Describe your requirements (e.g. 3-bedroom apartment, Purbachal location, top floors...)"
                       value={formData.message}
                       onChange={handleInputChange}
