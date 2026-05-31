@@ -154,7 +154,7 @@ export default function Contact() {
                 Plot #38, Road #302, Sector #15, Purbachal New Town, Dhaka. Located strategically near the main bypass expressway access point.
               </p>
               <a 
-                href="https://maps.google.com/?q=Sector+15+Purbachal+New+Town+Dhaka" 
+                href="https://maps.app.goo.gl/fdMvtqA4o314M6tE9" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gold hover:bg-gold/80 text-white font-sans text-[10px] uppercase font-bold tracking-widest transition-all"
