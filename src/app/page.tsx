@@ -392,7 +392,7 @@ export default function Home() {
             <ScrollReveal variant="fade-right" duration={0.9} className="lg:col-span-4 w-full">
               <div className="relative aspect-square md:aspect-[4/5] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-luxury-glow group border-2 border-gold/25">
                 <Image
-                  src="/images/ceo_portrait.png"
+                  src="/images/ceo_portrait_new.png"
                   alt="Md. Shahbuddin CEO Swapnosiri Builders Ltd"
                   fill
                   sizes="(max-width: 1024px) 100vw, 30vw"
