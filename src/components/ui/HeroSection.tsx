@@ -82,8 +82,8 @@ export default function HeroSection() {
   };
 
   return (
-    <div 
-      ref={heroRef} 
+    <div
+      ref={heroRef}
       className="relative w-full h-screen overflow-hidden bg-[#08060f]"
     >
       {/* Blueprint Drawing Grid System background */}
@@ -97,13 +97,13 @@ export default function HeroSection() {
             <motion.div
               key={idx}
               initial={{ scale: 1.08, opacity: 0 }}
-              animate={{ 
-                scale: isActive ? 1.00 : 1.08, 
+              animate={{
+                scale: isActive ? 1.00 : 1.08,
                 opacity: isActive ? 1 : 0,
               }}
-              transition={{ 
+              transition={{
                 opacity: { duration: 2.0, ease: "easeInOut" },
-                scale: { duration: 25.0, ease: "linear" } 
+                scale: { duration: 25.0, ease: "linear" }
               }}
               style={{
                 x: bgTranslateX,
@@ -122,20 +122,20 @@ export default function HeroSection() {
       </div>
 
       {/* Luxury Golden Ambient Glow behind the building */}
-      <div 
+      <div
         className="absolute w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full bg-[radial-gradient(circle,rgba(212,160,23,0.12)_0%,transparent_70%)] blur-3xl right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-none select-none"
       />
 
       {/* 2. Responsive Cinematic Dark Gradient Overlay (Keeps building 100% clearly visible) */}
       {/* Mobile overlay: vertical gradient to ensure bottom text readability */}
-      <div 
+      <div
         className="absolute inset-0 z-10 pointer-events-none md:hidden"
         style={{
           background: "linear-gradient(to top, rgba(17, 13, 46, 0.95) 0%, rgba(17, 13, 46, 0.40) 55%, rgba(17, 13, 46, 0.0) 85%)"
         }}
       />
       {/* Desktop overlay: horizontal gradient to ensure left text readability and absolute right-side building clarity */}
-      <div 
+      <div
         className="absolute inset-0 z-10 pointer-events-none hidden md:block"
         style={{
           background: "linear-gradient(to right, rgba(17, 13, 46, 0.92) 0%, rgba(17, 13, 46, 0.45) 45%, rgba(17, 13, 46, 0.0) 70%)"
@@ -145,14 +145,14 @@ export default function HeroSection() {
       {/* 3. Global Spacing & Layout Alignment wrapper */}
       <div className="max-w-7xl mx-auto h-full px-6 md:px-20 lg:px-[120px] relative z-20 flex items-center justify-start">
         {/* Content Container (620px restricted width to match Picture 2) */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="max-w-[620px] text-left space-y-6"
         >
           {/* Eyebrow Text */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="inline-flex items-center"
           >
@@ -162,7 +162,7 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Headline (Spacious modern sans-serif sentence-case typography matching Picture 2) */}
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
             className="font-sans text-3xl sm:text-[40px] md:text-[46px] font-extrabold text-white leading-[1.2] tracking-normal"
           >
@@ -170,7 +170,7 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Description (Sentence case matching Picture 2 exactly) */}
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-white/80 font-sans text-sm md:text-base font-normal leading-relaxed max-w-[500px]"
           >
@@ -178,7 +178,7 @@ export default function HeroSection() {
           </motion.p>
 
           {/* Buttons (Primary & Secondary CTA matching Picture 2 exactly) */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex flex-wrap items-center gap-4 pt-2"
           >
@@ -210,9 +210,8 @@ export default function HeroSection() {
           <button
             key={idx}
             onClick={() => setActiveSlide(idx)}
-            className={`w-8 h-2.5 rounded-full transition-all duration-350 ${
-              activeSlide === idx ? "bg-[#D4AF37] w-12" : "bg-white/30 hover:bg-white/50"
-            }`}
+            className={`w-8 h-2.5 rounded-full transition-all duration-350 ${activeSlide === idx ? "bg-[#D4AF37] w-12" : "bg-white/30 hover:bg-white/50"
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
@@ -222,10 +221,10 @@ export default function HeroSection() {
       <div className="absolute bottom-8 left-6 md:left-20 lg:left-[120px] flex items-center gap-4 z-20 pointer-events-none opacity-40">
         <span className="text-white text-[9px] font-sans font-semibold tracking-[0.3em] uppercase">Scroll</span>
         <div className="w-12 h-[1px] bg-white/30 relative overflow-hidden">
-          <motion.div 
+          <motion.div
             animate={{ x: ["-100%", "100%"] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            className="absolute inset-y-0 left-0 w-1/2 bg-[#D4AF37]" 
+            className="absolute inset-y-0 left-0 w-1/2 bg-[#D4AF37]"
           />
         </div>
       </div>
