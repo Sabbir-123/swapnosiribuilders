@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0a0a0a;        /* Near-black base */
-  --color-gold: #D4AF37;        /* Luxury Gold accent */
-  --color-dark: #141414;        /* Dark charcoal */
-  --color-light: #1e1e1e;       /* Mid dark layer */
+  --color-navy: #08101f;        /* Midnight Navy base */
+  --color-gold: #D4A017;        /* Luxury Warm Gold accent */
+  --color-dark: #0d1629;        /* Architectural Navy */
+  --color-light: #121926;       /* Slate Blue layer */
   --color-charcoal: #F8F8F6;    /* Crisp Luxury Warm White */
   --font-serif: var(--font-fira-sans), sans-serif;
   --font-sans: var(--font-fira-sans), sans-serif;
 }
 
 :root {
-  --background: #050505;
+  --background: #08101f;
   --foreground: #F8F8F6;
 }
 
@@ -34,20 +34,19 @@
   background: #C9A227;
 }
 
-/* Base resets & styles — Black → Ash → White gradient */
+/* Base resets & styles — Luxury Architectural Navy/Gold Gradient */
 body {
   background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 160, 23, 0.08),
+      transparent 40%
+    ),
     linear-gradient(
-      170deg,
-      #050505 0%,
-      #0d0d0d 12%,
-      #1a1a1a 28%,
-      #2e2e2e 42%,
-      #4a4a4a 55%,
-      #787878 68%,
-      #a8a8a8 78%,
-      #d0d0d0 88%,
-      #f0f0f0 100%
+      180deg,
+      #08101f 0%,
+      #0d1629 40%,
+      #121926 100%
     );
   background-attachment: fixed;
   color: var(--foreground);
@@ -118,9 +117,9 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #D4AF37 0%, #f7c348 50%, #B3860F 100%);
 }
 
-/* Black → Ash header gradient */
+/* Luxury Architectural header gradient */
 .bg-navy-gradient {
-  background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #08101f 0%, #0d1629 50%, #121926 100%);
 }
 
 /* Subtle architectural dot grid */
