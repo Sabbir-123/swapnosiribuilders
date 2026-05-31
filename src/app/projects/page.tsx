@@ -1,6 +1,19 @@
 import React from "react";
 import ProjectSection from "@/components/ui/ProjectSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Prestige Residential Portfolios for Sale | SBL Projects",
+  description: "Discover RAJUK-approved luxury flats for sale in Purbachal New Town and Jolshiri Abashon, Dhaka. Premium building projects built for maximum safety and comfort.",
+  keywords: [
+    "luxury apartments in Purbachal",
+    "premium flats in Jolshiri Abashon",
+    "RAJUK approved projects Dhaka",
+    "new real estate developments Bangladesh",
+    "secure residential buildings Dhaka"
+  ]
+};
 
 export default function Projects() {
   return (

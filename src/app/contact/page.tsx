@@ -2,6 +2,19 @@ import React from "react";
 import { MapPin, Phone, MessageSquare, Mail, Clock, ShieldCheck, Compass } from "lucide-react";
 import InquiryForm from "@/components/ui/InquiryForm";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact SBL Office | Luxury Flats in Purbachal & Jolshiri",
+  description: "Inquire about SBL's prestige residential projects. Get in touch with our structural consultants or visit our Sector 15 head office in Dhaka, Bangladesh.",
+  keywords: [
+    "SBL office address Dhaka",
+    "Swapnosiri Builders phone number",
+    "buy luxury apartment Purbachal",
+    "Jolshiri flat booking",
+    "real estate consultation Dhaka"
+  ]
+};
 
 export default function Contact() {
   return (

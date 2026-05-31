@@ -14,6 +14,7 @@ const firaSans = Fira_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://swapnosiribuilders.com"),
   title: {
     default: "Swapnosiri Builders Ltd. | Luxury Real Estate Developer in Bangladesh",
     template: "%s | Swapnosiri Builders Ltd."
@@ -69,11 +70,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Swapnosiri Builders Ltd.",
+    "alternateName": "SBL",
+    "image": "https://swapnosiribuilders.com/images/sbl_logo.png",
+    "telephone": "+8801759983983",
+    "email": "info@swapnosiribuilders.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "House #38, Road #302, Sector #15, Purbachal New Town",
+      "addressLocality": "Dhaka",
+      "postalCode": "1230",
+      "addressCountry": "BD"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "23.7771",
+      "longitude": "90.3994"
+    },
+    "url": "https://swapnosiribuilders.com",
+    "sameAs": [
+      "https://github.com/Sabbir-123/swapnosiribuilders"
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${firaSans.variable} scroll-smooth antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans text-white selection:bg-[#D4AF37] selection:text-white min-h-screen flex flex-col overflow-x-hidden">
         <SmoothScroll>
           <Navbar />

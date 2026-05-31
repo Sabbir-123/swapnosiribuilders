@@ -17,6 +17,7 @@ import Link from "next/link";
 import { SBL_PROJECTS } from "@/utils/data";
 import InquiryForm from "@/components/ui/InquiryForm";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -28,6 +29,39 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = SBL_PROJECTS.find((p) => p.id === id);
+  if (!project) return {};
+
+  return {
+    title: `${project.title} | Luxury Flats in ${project.area}, Dhaka`,
+    description: `Explore ${project.title} by SBL: A premium residential development featuring ${project.tagline}. Located in ${project.location} with dynamic 3D designs, seismic safety, and prime amenities.`,
+    keywords: [
+      project.title,
+      project.area,
+      project.location,
+      "luxury flats in Dhaka",
+      "premium residential development Bangladesh",
+      "BNBC compliant apartment"
+    ],
+    openGraph: {
+      title: `${project.title} | Luxury Flats in ${project.area}`,
+      description: project.description,
+      url: `https://swapnosiribuilders.com/projects/${project.id}`,
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      type: "website",
+    },
+  };
+}
+
 export default async function ProjectDetail({ params }: PageProps) {
   const { id } = await params;
   const project = SBL_PROJECTS.find((p) => p.id === id);
@@ -36,8 +70,27 @@ export default async function ProjectDetail({ params }: PageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": project.title,
+    "description": project.description,
+    "url": `https://swapnosiribuilders.com/projects/${project.id}`,
+    "image": project.image,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": project.area,
+      "addressRegion": "Dhaka",
+      "addressCountry": "BD"
+    }
+  };
+
   return (
     <div className="pt-24 bg-transparent">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back Button Overlay Banner */}
       <section className="bg-navy-gradient text-white py-12 relative border-b border-gold/15">
         <ScrollReveal variant="fade-up" duration={0.9} className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">

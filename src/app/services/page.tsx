@@ -14,6 +14,19 @@ import {
 } from "lucide-react";
 import { SBL_SERVICES } from "@/utils/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Safety Engineering & Premium Construction Services | SBL",
+  description: "Explore SBL's elite safety standards: Geotechnical soil audits, 225 km/h wind tunnel test designs, ductile seismic detailing, and premium Italian marble finishing.",
+  keywords: [
+    "SBL safety engineering services",
+    "earthquake resistant building Dhaka",
+    "seismic structural design Bangladesh",
+    "wind shield building test",
+    "soil bearing testing Dhaka"
+  ]
+};
 
 export default function Services() {
   const steps = [

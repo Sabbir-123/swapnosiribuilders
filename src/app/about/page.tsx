@@ -3,6 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, Target, Eye, Users, Award, Hammer, Trophy, TrendingUp, Sparkles, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About SBL | Elite Real Estate Developers in Dhaka",
+  description: "Meet Swapnosiri Builders Ltd., led by CEO Md. Shahbuddin. Discover our uncompromising commitment to BNBC-compliant safety engineering, premium materials (BSRM Grade 500W steel), and luxury living.",
+  keywords: [
+    "About Swapnosiri Builders",
+    "Md. Shahbuddin CEO",
+    "Dhaka premium developers",
+    "BSRM Grade 500W steel buildings",
+    "BNBC structural safety"
+  ]
+};
 
 export default function About() {
   const coreValues = [

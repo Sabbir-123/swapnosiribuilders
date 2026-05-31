@@ -4,6 +4,19 @@ import Link from "next/link";
 import { Clock, Calendar, ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import { SBL_NEWS } from "@/utils/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Real Estate News & Construction Progress Logs | SBL",
+  description: "Stay updated with SBL's construction progress logs, structural safety audit records, and prime property investment guides in Dhaka, Bangladesh.",
+  keywords: [
+    "Bangladesh real estate updates",
+    "Purbachal apartment progress logs",
+    "Dhaka property market insights",
+    "BNBC building audits",
+    "seismic safety reviews Dhaka"
+  ]
+};
 
 export default function News() {
   return (

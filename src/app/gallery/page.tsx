@@ -1,6 +1,19 @@
 import React from "react";
 import GallerySection from "@/components/ui/GallerySection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Luxury Architecture Gallery | Swapnosiri Builders Ltd.",
+  description: "A premium visual archive of SBL's exterior skyscraper facades, high-end lobby interiors, and reinforced concrete foundations.",
+  keywords: [
+    "SBL luxury imagery",
+    "Dhaka premium penthouse gallery",
+    "apartment lobby design Dhaka",
+    "under-construction building photos Bangladesh",
+    "skyscraper renders Dhaka"
+  ]
+};
 
 export default function Gallery() {
   return (
