@@ -40,7 +40,7 @@ export default async function ProjectDetail({ params }: PageProps) {
     <div className="pt-24 bg-transparent">
       {/* Back Button Overlay Banner */}
       <section className="bg-navy-gradient text-white py-12 relative border-b border-gold/15">
-        <ScrollReveal variant="fade-down" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <ScrollReveal variant="fade-up" duration={0.9} className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gray-300 hover:text-gold transition-colors duration-300"
@@ -63,40 +63,36 @@ export default async function ProjectDetail({ params }: PageProps) {
       <section className="py-16 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Visual Carousel Render */}
-          <div className="lg:col-span-7 space-y-6">
-            <ScrollReveal variant="fade-right" duration={0.9}>
-              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-103"
-                  priority
-                />
-              </div>
-            </ScrollReveal>
+          <ScrollReveal variant="fade-right" duration={0.9} className="lg:col-span-7 space-y-6">
+            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-103"
+                priority
+              />
+            </div>
             
             {/* Gallery Thumbnails */}
             <div className="grid grid-cols-2 gap-4">
               {project.images.map((img, idx) => (
-                <ScrollReveal key={idx} variant="scale-up" duration={0.8} delay={idx * 0.15}>
-                  <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
-                    <Image
-                      src={img}
-                      alt={`${project.title} Render ${idx + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 30vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </ScrollReveal>
+                <div key={idx} className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
+                  <Image
+                    src={img}
+                    alt={`${project.title} Render ${idx + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 30vw"
+                    className="object-cover"
+                  />
+                </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Core Overview & Callouts */}
-          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="lg:col-span-5 flex flex-col items-start text-left justify-between space-y-6">
+          <ScrollReveal variant="fade-left" duration={0.9} className="lg:col-span-5 flex flex-col items-start text-left justify-between space-y-6">
             <div className="space-y-4">
               <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
                 Overview
@@ -107,7 +103,7 @@ export default async function ProjectDetail({ params }: PageProps) {
               <p className="text-gold font-serif text-lg italic tracking-wide">
                 "{project.tagline}"
               </p>
-              <div className="flex items-center gap-2 text-gray-450 text-sm font-sans font-light pb-4 border-b border-white/10">
+              <div className="flex items-center gap-2 text-gray-455 text-sm font-sans font-light pb-4 border-b border-white/10">
                 <MapPin className="w-4 h-4 text-gold shrink-0" />
                 <span>{project.location}</span>
               </div>
@@ -146,7 +142,7 @@ export default async function ProjectDetail({ params }: PageProps) {
       <section className="py-20 bg-[#140f2a]/25 backdrop-blur-[2px] border-t border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Engineering Features */}
-          <ScrollReveal variant="fade-right" duration={0.9} className="text-left space-y-6">
+          <ScrollReveal variant="fade-right" duration={0.8} className="text-left space-y-6">
             <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
               Engineering Specs
             </span>
@@ -162,7 +158,7 @@ export default async function ProjectDetail({ params }: PageProps) {
           </ScrollReveal>
 
           {/* Premium Amenities */}
-          <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="text-left space-y-6">
+          <ScrollReveal variant="fade-left" duration={0.8} className="text-left space-y-6">
             <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
               Luxury Accents
             </span>
@@ -182,7 +178,7 @@ export default async function ProjectDetail({ params }: PageProps) {
       {/* Floor Plans & Technical Specifications Lists */}
       <section className="py-20 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Floor Plans */}
-        <ScrollReveal variant="fade-right" duration={0.9} className="text-left space-y-6">
+        <ScrollReveal variant="fade-right" duration={0.8} className="text-left space-y-6">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
             Floor Plans
           </span>
@@ -201,7 +197,7 @@ export default async function ProjectDetail({ params }: PageProps) {
         </ScrollReveal>
 
         {/* Technical specs table */}
-        <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="text-left space-y-6">
+        <ScrollReveal variant="fade-left" duration={0.8} className="text-left space-y-6">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase block">
             Specifications
           </span>

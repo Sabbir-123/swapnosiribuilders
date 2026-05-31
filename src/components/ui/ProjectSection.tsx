@@ -8,6 +8,7 @@ import { MapPin, ArrowRight, Building, ShieldCheck, X } from "lucide-react";
 import { SBL_PROJECTS, Project } from "@/utils/data";
 import InteractiveCard from "./InteractiveCard";
 import InquiryForm from "./InquiryForm";
+import ScrollReveal from "./ScrollReveal";
 
 export default function ProjectSection() {
   const [filter, setFilter] = useState<"All" | "Ongoing" | "Upcoming" | "Completed">("All");
@@ -24,128 +25,130 @@ export default function ProjectSection() {
   return (
     <div className="space-y-16">
       {/* Category Filter Toolbar */}
-      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-        {(["All", "Ongoing", "Upcoming", "Completed"] as const).map((status) => (
-          <button
-            key={status}
-            onClick={() => setFilter(status)}
-            className={`px-6 py-2.5 rounded-full font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${
-              filter === status
-                ? "bg-gold text-white shadow-lg shadow-gold/25 shadow-gold-glow"
-                : "bg-white/3 border border-white/8 text-white hover:border-gold hover:text-gold"
-            }`}
-          >
-            {status}
-          </button>
-        ))}
-      </div>
+      <ScrollReveal variant="fade-up" duration={0.8}>
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+          {(["All", "Ongoing", "Upcoming", "Completed"] as const).map((status) => (
+            <button
+              key={status}
+              onClick={() => setFilter(status)}
+              className={`px-6 py-2.5 rounded-full font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${
+                filter === status
+                  ? "bg-gold text-white shadow-lg shadow-gold/25 shadow-gold-glow"
+                  : "bg-white/3 border border-white/8 text-white hover:border-gold hover:text-gold"
+              }`}
+            >
+              {status}
+            </button>
+          ))}
+        </div>
+      </ScrollReveal>
 
       {/* Featured Project Showcase + Projects Catalogue */}
       {filter === "All" && featuredProject ? (
         <div className="space-y-16">
           {/* 1. Featured Project Star Row (Full-width, large split layout) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full bg-white/[0.02] backdrop-blur-md rounded-3xl overflow-hidden border border-white/8 shadow-luxury-glow grid grid-cols-1 lg:grid-cols-12 gap-0 group"
-          >
-            {/* Visual Image Banner column */}
-            <div className="lg:col-span-7 relative h-[380px] md:h-[480px] lg:h-[580px] overflow-hidden">
-              <Image
-                src={featuredProject.image}
-                alt={featuredProject.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover transition-transform duration-[1200ms] group-hover:scale-103"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#08060f] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#08060f]/70 pointer-events-none" />
-              
-              {/* Badge */}
-              <div className="absolute top-6 left-6 glassmorphism-light px-4 py-1.5 rounded-full border border-white/10">
-                <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-gold flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-                  FLAGSHIP PORTFOLIO
-                </span>
-              </div>
-            </div>
-
-            {/* Context details column */}
-            <div className="lg:col-span-5 p-8 md:p-12 lg:p-14 flex flex-col justify-between text-left">
-              <div className="space-y-6">
-                <span className="font-sans text-[10px] font-bold text-gold tracking-[0.3em] uppercase block">
-                  {featuredProject.area} • {featuredProject.status}
-                </span>
+          <ScrollReveal variant="scale-up" duration={0.9}>
+            <div className="w-full bg-white/[0.02] backdrop-blur-md rounded-3xl overflow-hidden border border-white/8 shadow-luxury-glow grid grid-cols-1 lg:grid-cols-12 gap-0 group">
+              {/* Visual Image Banner column */}
+              <div className="lg:col-span-7 relative h-[380px] md:h-[480px] lg:h-[580px] overflow-hidden">
+                <Image
+                  src={featuredProject.image}
+                  alt={featuredProject.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover transition-transform duration-[1200ms] group-hover:scale-103"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#08060f] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#08060f]/70 pointer-events-none" />
                 
-                <h3 className="font-serif text-3xl md:text-4xl lg:text-[40px] font-black text-white leading-tight uppercase tracking-tight">
-                  {featuredProject.title}
-                </h3>
-                
-                <p className="text-[#F8F8F6]/75 font-sans font-light text-sm leading-relaxed">
-                  {featuredProject.description}
-                </p>
-
-                <div className="flex items-center gap-2 text-gray-400 text-xs font-sans font-light border-b border-white/10 pb-4">
-                  <MapPin className="w-4 h-4 text-gold shrink-0" />
-                  <span>{featuredProject.location}</span>
-                </div>
-
-                {/* Stats / Tech Grid */}
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Confinement Cones</span>
-                    <span className="font-serif text-sm font-bold text-white uppercase block mt-1">Zone 2 Ductility</span>
-                  </div>
-                  <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Wind Shield</span>
-                    <span className="font-serif text-sm font-bold text-gold uppercase block mt-1">225 KM/H Tested</span>
-                  </div>
-                  <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Reinforcement</span>
-                    <span className="font-serif text-sm font-bold text-white uppercase block mt-1">BSRM 72.5G Steel</span>
-                  </div>
-                  <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Atrium entry</span>
-                    <span className="font-serif text-sm font-bold text-gold uppercase block mt-1">Italian Marble</span>
-                  </div>
+                {/* Badge */}
+                <div className="absolute top-6 left-6 glassmorphism-light px-4 py-1.5 rounded-full border border-white/10">
+                  <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-gold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                    FLAGSHIP PORTFOLIO
+                  </span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center justify-between gap-4 pt-8 border-t border-white/10 mt-8">
-                <Link
-                  href={`/projects/${featuredProject.id}`}
-                  className="font-sans text-xs font-bold tracking-widest text-white hover:text-gold transition-colors duration-300 uppercase flex items-center gap-2 group/btn"
-                >
-                  Explore Showcase
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
-                <button
-                  onClick={() => setActiveInquiryProject(featuredProject)}
-                  className="px-6 py-3.5 rounded-lg text-xs font-bold tracking-widest bg-gold hover:bg-gold/90 text-white uppercase transition-all duration-300 hover:shadow-gold-glow hover:-translate-y-0.5"
-                  style={{
-                    boxShadow: "0 0 15px rgba(212, 160, 23, 0.15)"
-                  }}
-                >
-                  Direct Inquiry
-                </button>
+              {/* Context details column */}
+              <div className="lg:col-span-5 p-8 md:p-12 lg:p-14 flex flex-col justify-between text-left">
+                <div className="space-y-6">
+                  <span className="font-sans text-[10px] font-bold text-gold tracking-[0.3em] uppercase block">
+                    {featuredProject.area} • {featuredProject.status}
+                  </span>
+                  
+                  <h3 className="font-serif text-3xl md:text-4xl lg:text-[40px] font-black text-white leading-tight uppercase tracking-tight">
+                    {featuredProject.title}
+                  </h3>
+                  
+                  <p className="text-[#F8F8F6]/75 font-sans font-light text-sm leading-relaxed">
+                    {featuredProject.description}
+                  </p>
+
+                  <div className="flex items-center gap-2 text-gray-400 text-xs font-sans font-light border-b border-white/10 pb-4">
+                    <MapPin className="w-4 h-4 text-gold shrink-0" />
+                    <span>{featuredProject.location}</span>
+                  </div>
+
+                  {/* Stats / Tech Grid */}
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Confinement Cones</span>
+                      <span className="font-serif text-sm font-bold text-white uppercase block mt-1">Zone 2 Ductility</span>
+                    </div>
+                    <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Wind Shield</span>
+                      <span className="font-serif text-sm font-bold text-gold uppercase block mt-1">225 KM/H Tested</span>
+                    </div>
+                    <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Reinforcement</span>
+                      <span className="font-serif text-sm font-bold text-white uppercase block mt-1">BSRM 72.5G Steel</span>
+                    </div>
+                    <div className="bg-white/3 border border-white/5 p-4 rounded-xl">
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block">Atrium entry</span>
+                      <span className="font-serif text-sm font-bold text-gold uppercase block mt-1">Italian Marble</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center justify-between gap-4 pt-8 border-t border-white/10 mt-8">
+                  <Link
+                    href={`/projects/${featuredProject.id}`}
+                    className="font-sans text-xs font-bold tracking-widest text-white hover:text-gold transition-colors duration-300 uppercase flex items-center gap-2 group/btn"
+                  >
+                    Explore Showcase
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                  <button
+                    onClick={() => setActiveInquiryProject(featuredProject)}
+                    className="px-6 py-3.5 rounded-lg text-xs font-bold tracking-widest bg-gold hover:bg-gold/90 text-white uppercase transition-all duration-300 hover:shadow-gold-glow hover:-translate-y-0.5"
+                    style={{
+                      boxShadow: "0 0 15px rgba(212, 160, 23, 0.15)"
+                    }}
+                  >
+                    Direct Inquiry
+                  </button>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </ScrollReveal>
 
           {/* 2. Grid for other SBL projects underneath */}
           <div className="space-y-8 pt-10">
-            <h4 className="font-serif text-xl md:text-2xl font-bold text-white text-left uppercase tracking-wider border-l-2 border-gold pl-4">
-              Other Prestige Portfolios
-            </h4>
+            <ScrollReveal variant="fade-right" duration={0.8}>
+              <h4 className="font-serif text-xl md:text-2xl font-bold text-white text-left uppercase tracking-wider border-l-2 border-gold pl-4">
+                Other Prestige Portfolios
+              </h4>
+            </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {otherProjects.map((project) => (
-                <motion.div
+              {otherProjects.map((project, idx) => (
+                <ScrollReveal
                   key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
+                  variant="fade-up"
+                  duration={0.8}
+                  delay={(idx % 2) * 0.15}
+                  className="h-full"
                 >
                   <InteractiveCard className="h-full bg-white/[0.02] backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/8 hover:border-gold/30 transition-all duration-300 flex flex-col group">
                     <div className="relative h-64 overflow-hidden shrink-0">
@@ -200,7 +203,7 @@ export default function ProjectSection() {
                       </div>
                     </div>
                   </InteractiveCard>
-                </motion.div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

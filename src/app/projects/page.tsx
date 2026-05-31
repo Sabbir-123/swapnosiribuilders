@@ -8,7 +8,7 @@ export default function Projects() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.9} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             SBL Portfolios
           </span>
@@ -23,9 +23,7 @@ export default function Projects() {
 
       {/* Projects catalogue section */}
       <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
-        <ScrollReveal variant="scale-up" duration={0.9} delay={0.15}>
-          <ProjectSection />
-        </ScrollReveal>
+        <ProjectSection />
       </section>
     </div>
   );

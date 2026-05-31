@@ -11,7 +11,7 @@ export default function News() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.9} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             Corporate Press
           </span>
@@ -68,7 +68,7 @@ export default function News() {
 
           {/* Sidebar Grid (Remaining Articles) */}
           <div className="lg:col-span-4 space-y-8 text-left">
-            <ScrollReveal variant="fade-down" duration={0.6}>
+            <ScrollReveal variant="fade-left" duration={0.8}>
               <h3 className="font-serif text-lg font-bold text-white uppercase tracking-wider mb-6 border-b border-white/10 pb-3 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-gold" />
                 Developer Insights
@@ -77,7 +77,12 @@ export default function News() {
             
             <div className="space-y-8">
               {SBL_NEWS.slice(1).map((art, idx) => (
-                <ScrollReveal key={art.slug} variant="fade-up" duration={0.8} delay={idx * 0.1}>
+                <ScrollReveal 
+                  key={art.slug} 
+                  variant="fade-left" 
+                  duration={0.8} 
+                  delay={idx * 0.15}
+                >
                   <div className="group border-b border-white/10 pb-6 last:border-0 last:pb-0 space-y-3">
                     <div className="flex items-center gap-3 text-[10px] font-sans font-bold text-gold uppercase tracking-widest">
                       <span>{art.category}</span>
@@ -87,7 +92,7 @@ export default function News() {
                     <h4 className="font-serif text-base font-bold text-white group-hover:text-gold transition-colors duration-300 leading-snug">
                       {art.title}
                     </h4>
-                    <p className="text-gray-450 font-sans text-xs leading-relaxed font-light line-clamp-2">
+                    <p className="text-gray-400 font-sans text-xs leading-relaxed font-light line-clamp-2">
                       {art.excerpt}
                     </p>
                     <p className="text-gray-300 font-sans text-xs leading-relaxed font-light pt-2 italic text-white/70 border-l-2 border-gold/45 pl-3">
@@ -99,7 +104,7 @@ export default function News() {
             </div>
 
             {/* SBL Audit Highlight card */}
-            <ScrollReveal variant="scale-up" duration={0.9} delay={0.25}>
+            <ScrollReveal variant="fade-left" duration={0.8} delay={0.4}>
               <div className="bg-light p-6 rounded-2xl border border-white/10 space-y-4">
                 <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/15">
                   <Sparkles className="w-5 h-5 text-gold" />

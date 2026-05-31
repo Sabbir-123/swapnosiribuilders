@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Maximize2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 interface GalleryItem {
   id: number;
@@ -74,21 +75,23 @@ export default function GallerySection() {
   return (
     <div className="space-y-12">
       {/* Category Filter Toolbar */}
-      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-        {(["All", "Exterior", "Interior", "Construction"] as const).map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-6 py-2 rounded-full font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${
-              activeCategory === cat
-                ? "bg-gold text-white shadow-lg"
-                : "bg-[#140f2a]/80 border border-white/10 text-white hover:border-gold hover:text-gold"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <ScrollReveal variant="fade-up" duration={0.8}>
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+          {(["All", "Exterior", "Interior", "Construction"] as const).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-6 py-2 rounded-full font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${
+                activeCategory === cat
+                  ? "bg-gold text-white shadow-lg"
+                  : "bg-[#140f2a]/80 border border-white/10 text-white hover:border-gold hover:text-gold"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </ScrollReveal>
 
       {/* Masonry Layout Grid */}
       <motion.div 

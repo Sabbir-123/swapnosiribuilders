@@ -60,7 +60,7 @@ export default function About() {
       {/* Editorial Header Banner */}
       <section className="bg-navy-gradient text-white py-20 relative">
         <div className="absolute inset-0 bg-dot-grid opacity-25 pointer-events-none" />
-        <ScrollReveal variant="fade-up" duration={0.8} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
+        <ScrollReveal variant="fade-up" duration={0.9} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left space-y-4">
           <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
             About Our Brand
           </span>
@@ -88,18 +88,20 @@ export default function About() {
             </div>
           </ScrollReveal>
           <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="lg:col-span-6 w-full text-left space-y-6">
-            <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
-              Company Overview
-            </span>
-            <h2 className="font-serif text-3xl font-extrabold text-white">
-              Integrity, Professionalism, and Superior Construction Detailing
-            </h2>
-            <p className="text-gray-300 font-sans text-sm md:text-base font-light leading-relaxed">
-              Founded in 2023, Swapnosiri Builders Ltd. has maintained an unwavering dedication to quality. Focusing our development energies strictly in the smart sectors of Purbachal New Town and Jolshiri Abashon, we construct residential assets that function as generational wealth vaults.
-            </p>
-            <p className="text-gray-400 font-sans text-sm font-light leading-relaxed">
-              Our developments combine premium aesthetics with maximum engineering safety compliance. Collaborating strictly with premier construction laboratories and steel manufacturers, SBL guarantees robust, BNBC-compliant wind and earthquake resistant structures.
-            </p>
+            <div>
+              <span className="font-sans text-xs font-bold text-gold tracking-[0.25em] uppercase">
+                Company Overview
+              </span>
+              <h2 className="font-serif text-3xl font-extrabold text-white mt-2">
+                Integrity, Professionalism, and Superior Construction Detailing
+              </h2>
+              <p className="text-gray-300 font-sans text-sm md:text-base font-light leading-relaxed mt-4">
+                Founded in 2023, Swapnosiri Builders Ltd. has maintained an unwavering dedication to quality. Focusing our development energies strictly in the smart sectors of Purbachal New Town and Jolshiri Abashon, we construct residential assets that function as generational wealth vaults.
+              </p>
+              <p className="text-gray-400 font-sans text-sm font-light leading-relaxed mt-4">
+                Our developments combine premium aesthetics with maximum engineering safety compliance. Collaborating strictly with premier construction laboratories and steel manufacturers, SBL guarantees robust, BNBC-compliant wind and earthquake resistant structures.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -109,7 +111,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
             {/* Mission */}
-            <ScrollReveal variant="fade-right" duration={0.8} className="w-full">
+            <ScrollReveal variant="fade-right" duration={0.9} className="w-full">
               <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6 h-full">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
                   <Target className="w-6 h-6 text-gold" />
@@ -122,7 +124,7 @@ export default function About() {
             </ScrollReveal>
 
             {/* Vision */}
-            <ScrollReveal variant="fade-left" duration={0.8} delay={0.15} className="w-full">
+            <ScrollReveal variant="fade-left" duration={0.9} delay={0.15} className="w-full">
               <div className="bg-[#1e1740]/80 p-8 md:p-12 rounded-3xl border border-white/10 shadow-md flex flex-col space-y-6 h-full">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold border border-gold/15 shrink-0">
                   <Eye className="w-6 h-6 text-gold" />
@@ -204,27 +206,31 @@ export default function About() {
                 <ScrollReveal 
                   key={idx}
                   variant={idx % 2 === 0 ? "fade-left" : "fade-right"}
-                  duration={0.8}
-                  className={`flex flex-col md:flex-row items-center gap-8 md:gap-0 ${
-                    idx % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
+                  duration={0.85}
+                  delay={(idx % 2) * 0.1}
                 >
-                  {/* Content block */}
-                  <div className="w-full md:w-[45%] text-left">
-                    <div className="bg-[#140f2a]/80 p-6 rounded-2xl border border-white/10 shadow-sm space-y-3">
-                      <span className="font-serif text-xl font-bold text-gold">{ev.year}</span>
-                      <h4 className="font-serif text-base font-bold text-white">{ev.title}</h4>
-                      <p className="text-gray-400 font-sans text-xs font-light leading-relaxed">{ev.desc}</p>
+                  <div 
+                    className={`flex flex-col md:flex-row items-center gap-8 md:gap-0 ${
+                      idx % 2 === 0 ? "md:flex-row-reverse" : ""
+                    }`}
+                  >
+                    {/* Content block */}
+                    <div className="w-full md:w-[45%] text-left">
+                      <div className="bg-[#140f2a]/80 p-6 rounded-2xl border border-white/10 shadow-sm space-y-3">
+                        <span className="font-serif text-xl font-bold text-gold">{ev.year}</span>
+                        <h4 className="font-serif text-base font-bold text-white">{ev.title}</h4>
+                        <p className="text-gray-400 font-sans text-xs font-light leading-relaxed">{ev.desc}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Bullet node */}
-                  <div className="relative z-10 w-10 h-10 rounded-full border-2 border-gold bg-[#1e1740] flex items-center justify-center text-gold shrink-0">
-                    <ev.icon className="w-4 h-4" />
-                  </div>
+                    {/* Bullet node */}
+                    <div className="relative z-10 w-10 h-10 rounded-full border-2 border-gold bg-[#1e1740] flex items-center justify-center text-gold shrink-0">
+                      <ev.icon className="w-4 h-4" />
+                    </div>
 
-                  {/* Empty spacer block for alignment */}
-                  <div className="hidden md:block w-[45%]" />
+                    {/* Empty spacer block for alignment */}
+                    <div className="hidden md:block w-[45%]" />
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
