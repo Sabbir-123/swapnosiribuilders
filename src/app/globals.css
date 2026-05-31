@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #0a0a0a;        /* Near-black base */
+  --color-gold: #D4AF37;        /* Luxury Gold accent */
+  --color-dark: #141414;        /* Dark charcoal */
+  --color-light: #1e1e1e;       /* Mid dark layer */
+  --color-charcoal: #F8F8F6;    /* Crisp Luxury Warm White */
+  --font-serif: var(--font-fira-sans), sans-serif;
+  --font-sans: var(--font-fira-sans), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #F8F8F6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A227;
+}
+
+/* Base resets & styles — Black → Ash → White gradient */
+body {
+  background:
+    linear-gradient(
+      170deg,
+      #050505 0%,
+      #0d0d0d 12%,
+      #1a1a1a 28%,
+      #2e2e2e 42%,
+      #4a4a4a 55%,
+      #787878 68%,
+      #a8a8a8 78%,
+      #d0d0d0 88%,
+      #f0f0f0 100%
+    );
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+}
+
+/* Luxury Glassmorphism Utilities */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-light {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Premium box shadow lighting glows */
+.shadow-luxury-glow {
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.10), 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.bg-blueprint-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
+/* Architectural Blueprints Reveal Animations */
+@keyframes reveal-blueprint {
+  from {
+    clip-path: inset(100% 0 0 0);
+    filter: brightness(1.5) contrast(1.2);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1) contrast(1);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-blueprint {
+  animation: reveal-blueprint 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dynamic gold gradient text */
+.text-luxury-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #f7c348 50%, #B3860F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-luxury-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #f7c348 50%, #B3860F 100%);
+}
+
+/* Black → Ash header gradient */
+.bg-navy-gradient {
+  background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #2a2a2a 100%);
+}
+
+/* Subtle architectural dot grid */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Hide navigation default scrollbar in slider */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
